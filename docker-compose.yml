@@ -1,0 +1,37 @@
+# Leon — single-instance demo topology ([500], A-8).
+# Host ports are bound to 127.0.0.1 only ([310] SEC-1: no public bind).
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: leon
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-leon}
+      POSTGRES_DB: leon
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - leon_pgdata:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://leon:${POSTGRES_PASSWORD:-leon}@postgres:5432/leon
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      - postgres
+    volumes:
+      - ./data:/app/data
+
+  frontend:
+    build: ./frontend
+    environment:
+      VITE_API_BASE_URL: http://127.0.0.1:8000
+    ports:
+      - "127.0.0.1:5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  leon_pgdata:

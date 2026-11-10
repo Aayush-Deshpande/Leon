@@ -1,0 +1,25 @@
+{
+  "corpus_version": "corpus-v1.0",
+  "documents": [
+    {
+      "doc_id": "ica-1872-core",
+      "type": "statute",
+      "title": "Indian Contract Act, 1872 (selected sections)",
+      "citation_label": "Indian Contract Act, 1872",
+      "origin": "India Code — public-domain statutory text",
+      "retrieved_at": "2026-07-06",
+      "jurisdiction": "IN",
+      "file": "ica_1872_sections.txt"
+    },
+    {
+      "doc_id": "fixture-judgment-illustrative",
+      "type": "case_law",
+      "title": "Illustrative Judgment (test fixture)",
+      "citation_label": "Illustrative Judgment (fixture)",
+      "origin": "Synthetic fixture — NOT a real judgment; for deterministic testing only",
+      "retrieved_at": "2026-07-06",
+      "jurisdiction": "IN",
+      "file": "illustrative_judgment.txt"
+    }
+  ]
+}

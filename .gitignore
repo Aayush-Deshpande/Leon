@@ -1,0 +1,20 @@
+# Python
+.venv/
+backend/.venv/
+install.log
+__pycache__/
+*.pyc
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Env & secrets ([310] SEC-2)
+.env
+
+# Data / corpus artifacts (kept out of VCS)
+data/corpus/
